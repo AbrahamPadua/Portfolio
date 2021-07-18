@@ -46,9 +46,9 @@ const Loader = () => {
             window.setTimeout(() => {
               char.innerHTML = "&nbsp;";
             }, time + 100);
-          }, 5000 * Math.random() + 5000);
+          }, 2000 * Math.random() + 5000);
         }
-      }, lines.indexOf(text) * 2000);
+      }, lines.indexOf(text) * 1000);
     }
 
     window.setTimeout(() => {
@@ -57,7 +57,7 @@ const Loader = () => {
       window.setTimeout(() => {
         loader.style.display = "none"
       }, 2100)
-    }, 13000)
+    }, 9000)
   }, [lines]);
 
   return (
