@@ -1,0 +1,24 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@mixin burgerHandles($top: 0) {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 100%;
+  background: #3f51b5;
+  top: $top;
+  box-shadow: -2px 3px 4px rgba(0, 0, 0, 0.5);
+  // border-radius: 1px;
+  transition: all 0.35s;
+  user-select: none;
+}

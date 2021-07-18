@@ -1,0 +1,123 @@
+@use "./mixins" as *;
+
+.navbar {
+  @include flex-center;
+  // POSITIONING
+  position: fixed;
+  top: -50vh;
+  right: -50vw;
+  // DIMENSIONS
+  height: 0vh;
+  width: 0;
+  // STYLING
+  background-color: #777;
+  border-radius: 100%;
+  transition: all 0.4s ease-out;
+
+  &.active {
+    // display: block;
+    top: -25vh;
+    right: -25vw;
+    width: 150vw;
+    height: 150vh;
+    // border-radius: 0;
+  }
+
+  .navlinks {
+    list-style: none;
+    user-select: none;
+
+    li {
+      position: relative;
+      margin: 10vh;
+      font-size: 2rem;
+      opacity: 0;
+      transition: all 0.1s 0s;
+      overflow: hidden;
+
+      a {
+        text-decoration: none;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: -10%;
+          width: 0;
+          height: 4px;
+          background-color: #fff;
+          z-index: 13;
+          transition: all 0.2s;
+        }
+
+        &:hover::after {
+          width: 110%;
+        }
+      }
+    }
+
+    &.active {
+      user-select: text;
+
+      li {
+        opacity: 1;
+        transition: all 0.25s 0.4s;
+      }
+    }
+  }
+}
+
+.burger {
+  $size: 50px;
+  width: $size;
+  height: $size;
+  position: fixed;
+  right: 30px;
+  top: 30px;
+  cursor: pointer;
+
+  span {
+    position: fixed;
+    top: 52.5px;
+    right: 37.5px;
+    width: 34px;
+    height: 4px;
+    background: #3f51b5;
+    display: block;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    // border-radius: 2px;
+    transition: all 0.35s;
+    user-select: none;
+
+    &::before {
+      @include burgerHandles(-10px);
+      left: 0;
+    }
+    &::after {
+      @include burgerHandles(10px);
+      right: 0;
+    }
+  }
+
+  &.active {
+    span {
+      transform: rotate(-45deg);
+
+      &::before {
+        transform: rotate(90deg);
+        box-shadow: -0.5px 2px 2px rgba(0, 0, 0, 0.3);
+        width: 15px;
+        top: -9.4px;
+        left: 9.4px;
+      }
+
+      &::after {
+        transform: rotate(90deg);
+        box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3);
+        width: 15px;
+        top: 9.4px;
+        right: 9.4px;
+      }
+    }
+  }
+}

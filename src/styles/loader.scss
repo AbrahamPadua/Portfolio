@@ -1,0 +1,37 @@
+@use "./mixins" as *;
+
+.loader {
+  @include flex-center;
+  flex-flow: column;
+  // POSITIONING
+  position: fixed;
+  left: 0;
+  top: 0;
+  // DIMENSIONS
+  width: 100vw;
+  height: 100vh;
+  // STYLING
+  background-color: #111;
+  opacity: 1;
+  transition: opacity 2s 0s;
+
+  .initText {
+    opacity: 0;
+    font-family: "Courier New", Courier, monospace;
+    color: white;
+    transition: opacity 2s 0.1s;
+
+    &.show {
+      opacity: 1;
+      transition: all 2s 0;
+    }
+
+    span.highlight {
+      color: rgb(238, 65, 65);
+    }
+  }
+
+  &.hide {
+    opacity: 0;
+  }
+}
