@@ -1,28 +1,39 @@
 // COMPONENTS
-import NavBar from "./components/NavBar";
-import Contact from "./components/Contact";
-import About from "./components/About";
-import Projects from "./components/Projects";
-import Technologies from "./components/Technologies";
 import { BrowserRouter as Router } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import { Items, Profile, Skills } from "./components/AppComponents";
+import About from "./components/About";
+import Technologies from "./components/Technologies";
+import Contact from "./components/Contact";
+import Loader from "./components/Loader";
 // STYLING
 import "./styles/App.scss";
-import Loader from "./components/Loader";
 // import logo from './logo.svg';
 
 function App() {
   return (
     <Router>
-      <Loader />
       <div className="container">
-        <NavBar />
         <main>
+          {/* PROFILE AREA */}
+          <Profile />
+          {/* MIDDLE PART */}
+          <section className="start">
+            <button>Explore</button>
+          </section>
+          {/* SIDE PART */}
+          <Items />
+          {/* BOTTOM PART */}
+          <Skills />
+          {/* HIDDEN PARTS */}
           <About />
-          <Projects />
           <Technologies />
           <Contact />
         </main>
+        <NavBar />
       </div>
+
+      <Loader />
     </Router>
   );
 }

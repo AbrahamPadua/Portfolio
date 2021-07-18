@@ -22,3 +22,27 @@
   transition: all 0.35s;
   user-select: none;
 }
+
+@mixin absPos($t: 0, $r: 0, $b: 0, $l: 0, $x: -50%, $y: -50%) {
+  position: absolute;
+
+  @if $t != 0 {
+    top: $t;
+  }
+  @if $r != 0 {
+    right: $r;
+  }
+  @if $b != 0 {
+    bottom: $b;
+  }
+  @if $l != 0 {
+    left: $l;
+  }
+
+  transform: translate($x, $y);
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}

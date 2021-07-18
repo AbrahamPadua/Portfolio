@@ -1,0 +1,40 @@
+@use "./mixins" as *;
+
+.panel {
+  @include flex-center;
+  display: none;
+  // POSITIONING
+  position: absolute;
+  inset: 50vh 50vw;
+  transform: translate(-50%, -50%);
+  // DIMENSIONS
+  height: 50vh;
+  width: 50vw;
+  // STYLING
+  border: 1px solid black;
+
+  .wrapper {
+    // POSITIONING
+    position: relative;
+
+    .panel_gui {
+    }
+
+    .close_btn {
+      // POSITIONING
+      position: absolute;
+      right: 0;
+      top: 0;
+      // DIMENSIONS
+      width: 20px;
+      height: 20px;
+      // STYLING
+      border: 1px solid black;
+      cursor: pointer;
+    }
+  }
+
+  &.show {
+    display: block;
+  }
+}

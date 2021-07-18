@@ -28,30 +28,37 @@
     user-select: none;
 
     li {
+      // POSITIONING
       position: relative;
+      // DIMENSIONS & SPACES
+      @include flex-center;
+      gap: 1vw;
+      overflow: hidden;
       margin: 10vh;
+      // STYLING
       font-size: 2rem;
+      cursor: pointer;
       opacity: 0;
       transition: all 0.1s 0s;
-      overflow: hidden;
 
-      a {
+      p {
         text-decoration: none;
+        color: #222;
+      }
 
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: -10%;
-          width: 0;
-          height: 4px;
-          background-color: #fff;
-          z-index: 13;
-          transition: all 0.2s;
+      svg {
+        display: none;
+        width: 33px;
+        height: 33px;
+
+        &.second {
+          transform: rotate(180deg);
         }
+      }
 
-        &:hover::after {
-          width: 110%;
+      &:hover {
+        svg {
+          display: inline;
         }
       }
     }
